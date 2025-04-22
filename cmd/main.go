@@ -19,7 +19,6 @@ import (
 )
 
 func main() {
-	// Create a new MCP server
 	s := server.NewMCPServer(
 		"Cyclops",
 		"1.0.0",
@@ -51,7 +50,6 @@ func main() {
 	templatesController := templates.NewController(templatesRepo)
 	templatesController.RegisterTemplateStoreTools(s)
 
-	// Start the server using standard I/O
 	if err := server.ServeStdio(s); err != nil {
 		log.Printf("Server error: %v\n", err)
 		os.Exit(1)
