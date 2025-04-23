@@ -28,12 +28,7 @@ GOBIN="$HOME/go/bin" go install github.com/cyclops-ui/mcp-cyclops/cmd/mcp-cyclop
 
 ### 3. Add server configuration
 
-<aside>
-⚠️
-
-By default, Cyclops MCP will use the `.kube/config` file to connect to your cluster
-
-</aside>
+> ⚠️ By default, Cyclops MCP will use the `.kube/config` file to connect to your cluster
 
 Configure your MCP Cyclops server:
 
