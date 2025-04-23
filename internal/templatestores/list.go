@@ -9,7 +9,7 @@ import (
 
 func (t *TemplateStoreController) listTemplateStoresTool() mcp.Tool {
 	return mcp.NewTool("list_template_store",
-		mcp.WithDescription("List Fetch Template Stores from cluster"),
+		mcp.WithDescription("List Template Stores from cluster"),
 	)
 }
 
