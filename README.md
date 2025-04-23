@@ -46,11 +46,12 @@ Configure your MCP Cyclops server:
 
 ## Tools
 
-| `create_module` | Create new Module. Before calling this tool, make sure to call `get_template_schema` to validate values for the given template |
-| --- | --- |
-| `get_module` | Fetch Module by name |
-| `list_modules` | List all Cyclops Modules |
-| `update_module` | Update Module by Name. Before calling this tool, make sure to call `get_template_schema` to validate values for the given template |
-| `get_template_schema` | Returns JSON schema for the given template. Needs to be checked before calling `create_module` tool |
-| `get_template_store`  | Fetch Template Store by Name |
-| `list_template_store` | List Template Stores from cluster |
+| Tool                  | Description                                                                                                                        |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| `create_module`       | Create new Module. Before calling this tool, make sure to call `get_template_schema` to validate values for the given template     |
+| `get_module`          | Fetch Module by name                                                                                                               |
+| `list_modules`        | List all Cyclops Modules                                                                                                           |
+| `update_module`       | Update Module by Name. Before calling this tool, make sure to call `get_template_schema` to validate values for the given template |
+| `get_template_schema` | Returns JSON schema for the given template. Needs to be checked before calling `create_module` tool                                |
+| `get_template_store`  | Fetch Template Store by Name                                                                                                       |
+| `list_template_store` | List Template Stores from cluster                                                                                                  |
