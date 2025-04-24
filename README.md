@@ -1,10 +1,14 @@
-# Cyclops MCP (Model Context Protocol)
-
 <p align="center" width="100%">
     <img width="75%" src="https://raw.githubusercontent.com/cyclops-ui/cyclops/main/web/static/img/cyclops-simplistic.png">
 <p/>
 
+# Cyclops MCP (Model Context Protocol)
+
 Cyclops MCP allows your favorite AI agent to manage your Kubernetes applications. Cyclops MCP servers provide tools for agents to create and update existing applications safely.
+
+<p align= "center">
+    <img src="https://github.com/user-attachments/assets/f86617e3-712a-4625-9d28-63f078366059"/>
+</p>
 
 This means it can check all of your existing templates and the schema of those templates to create accurate and production-ready applications. Your agent now has much less room to make a misconfiguration since it creates high-level resources (Cyclops Modules) instead of touching every line of your Kubernetes resources (Deployments, Services, and Ingresses).
 
