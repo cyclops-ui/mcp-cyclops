@@ -55,3 +55,33 @@ Configure your MCP Cyclops server:
 | `get_template_schema` | Returns JSON schema for the given template. Needs to be checked before calling `create_module` tool                                |
 | `get_template_store`  | Fetch Template Store by Name                                                                                                       |
 | `list_template_store` | List Template Stores from cluster                                                                                                  |
+
+## Configuration
+
+You can configure Cyclops MCP server via env variables. Below is an example of adding the configuration for specifying the kubeconfig file the Cyclops MCP server should use when managing your Cyclops applications.
+
+```json
+{
+  "mcpServers": {
+    "mcp-cyclops": {
+      "command": "mcp-cyclops",
+      "env": {
+        "KUBECONFIG": "/path/to/your/kubeconfig"
+      }
+    }
+  }
+}
+
+```
+
+### Environment variables
+
+Below is the list of environment variables used for configuring your Cyclops MCP server:
+
+| Env var                           | Description                                                                             |
+|-----------------------------------|-----------------------------------------------------------------------------------------|
+| `KUBECONFIG`                      | Path to kubeconfig file (optional, defaults to in-cluster config or $HOME/.kube/config) |
+| `CYCLOPS_KUBE_CONTEXT`            | Kubernetes context to use (optional)                                                    |
+| `CYCLOPS_MODULE_NAMESPACE`        | Namespace where modules are stored                                                      |
+| `CYCLOPS_HELM_RELEASE_NAMESPACE`  | Namespace for Helm releases                                                             |
+| `CYCLOPS_MODULE_TARGET_NAMESPACE` | Target namespace for modules                                                            |
