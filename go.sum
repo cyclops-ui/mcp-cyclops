@@ -47,17 +47,6 @@ github.com/containerd/continuity v0.4.2/go.mod h1:F6PTNCKepoxEaXLQp3wDAjygEnImnZ
 github.com/containerd/log v0.1.0 h1:TCJt7ioM2cr/tfR8GPbGf9/VRAX8D2B4PjzCpfX540I=
 github.com/containerd/log v0.1.0/go.mod h1:VRRf09a7mHDIRezVKTRCrOq78v577GXq3bSa3EhrzVo=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
-github.com/cyclops-ui/cyclops v0.18.5/go.mod h1:6H1Dk8t18WQFYHUn1aGTTvwcrZGTdAnBh6qGcDRdtNk=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250422163445-4a15b13ad3a5 h1:WD2f+0cfEC3QXKbUYUW8K8CH673Wezw6Ho+M5RQc5XY=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250422163445-4a15b13ad3a5/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250424075329-c9fd7a0fa219 h1:UrXhaTTIjM83uZJvPQ9ZjhbwI3385VoR66fZnjaQjKE=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250424075329-c9fd7a0fa219/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250424103816-0aa958f49c5d h1:5P4qblnDB9W0n58v2zdpVJc7GvCQ7LO2X4yry4KX30c=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250424103816-0aa958f49c5d/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425135400-901fdcb6458c h1:7zwCzLwqJcBTyZ1GFjy/M7EKgbyy7yQZCdGIeMa5cYk=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425135400-901fdcb6458c/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425140223-5d317db66dd8 h1:xkNha/9kisydy8ZY3H1p2BUiN3BzoePbVGAHbyNJhMY=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425140223-5d317db66dd8/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
 github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425140426-3fe1a1ecab1e h1:H2I/WXA7FBfz6VNFdMt3IB2YZtzPbwzmMELdkRuDuRc=
 github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425140426-3fe1a1ecab1e/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
 github.com/cyphar/filepath-securejoin v0.2.4 h1:Ugdm7cg7i6ZK6x3xDF1oEu1nfkyfH53EtKeQYTC3kyg=
@@ -187,6 +176,8 @@ github.com/inconshreveable/mousetrap v1.1.0 h1:wN+x4NVGpMsO7ErUn/mUI3vEoE6Jt13X2
 github.com/inconshreveable/mousetrap v1.1.0/go.mod h1:vpF70FUmC8bwa3OWnCshd2FqLfsEA9PFc4w1p2J65bw=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 h1:BQSFePA1RWJOlocH6Fxy8MmwDt+yVQYULKfN0RoTN8A=
 github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99/go.mod h1:1lJo3i6rXxKeerYnT8Nvf0QmHCRC1n8sfWVwXF2Frvo=
+github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=
+github.com/joho/godotenv v1.5.1/go.mod h1:f4LDr5Voq0i2e/R5DDNOoa2zzDfwtkZa6DnEwAbqwq4=
 github.com/josharian/intern v1.0.0 h1:vlS4z54oSdjm0bgjRigI+G1HpF+tI+9rE5LLzOg8HmY=
 github.com/josharian/intern v1.0.0/go.mod h1:5DoeVV0s6jJacbCEi61lwdGj/aVlrQvzHFFd8Hwg//Y=
 github.com/json-iterator/go v1.1.6/go.mod h1:+SdeFBvtyEkXs7REEP0seUULqWtbJapLOCVDaaPEHmU=

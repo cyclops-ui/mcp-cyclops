@@ -8,6 +8,7 @@ import (
 
 	"github.com/mark3labs/mcp-go/server"
 
+	_ "github.com/joho/godotenv/autoload"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	"github.com/cyclops-ui/cyclops/cyclops-ctrl/pkg/auth"

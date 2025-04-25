@@ -4,6 +4,7 @@ go 1.23.8
 
 require (
 	github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425140426-3fe1a1ecab1e
+	github.com/joho/godotenv v1.5.1
 	github.com/mark3labs/mcp-go v0.22.0
 	k8s.io/apiextensions-apiserver v0.32.3
 	k8s.io/apimachinery v0.32.3
