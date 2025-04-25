@@ -1,12 +1,14 @@
 package main
 
 import (
-	"log"
+	"context"
+	"fmt"
 	"os"
 	"path/filepath"
 
 	"github.com/mark3labs/mcp-go/server"
 
+	_ "github.com/joho/godotenv/autoload"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
 	"github.com/cyclops-ui/cyclops/cyclops-ctrl/pkg/auth"
@@ -20,8 +22,14 @@ import (
 )
 
 type Config struct {
-	kubeconfigPath        string
-	kubeContext           string
+	version string
+
+	transport string
+	address   string
+
+	kubeconfigPath string
+	kubeContext    string
+
 	moduleNamespace       string
 	helmReleaseNamespace  string
 	moduleTargetNamespace string
@@ -48,7 +56,7 @@ func main() {
 		zap.New(),
 	)
 	if err != nil {
-		log.Printf("Failed to create Kubernetes client: %v\n", err)
+		fmt.Println(fmt.Sprintf("Failed to create Kubernetes client: %v", err))
 		os.Exit(1)
 	}
 
@@ -66,14 +74,27 @@ func main() {
 	templatesController := templates.NewController(templatesRepo)
 	templatesController.RegisterTemplateStoreTools(s)
 
-	if err := server.ServeStdio(s); err != nil {
-		log.Printf("Server error: %v\n", err)
-		os.Exit(1)
+	switch config.transport {
+	case "stdio":
+		stdioServer := server.NewStdioServer(s)
+		if err := stdioServer.Listen(context.Background(), os.Stdin, os.Stdin); err != nil {
+			panic(err)
+		}
+	case "sse":
+		sseServer := server.NewSSEServer(s)
+		if err := sseServer.Start(config.address); err != nil {
+			panic(err)
+		}
+	default:
+		panic("invalid transport type - should be stdio or sse")
 	}
 }
 
 func loadConfig() *Config {
 	config := &Config{
+		version:               getEnvOrDefault("CYCLOPS_MCP_VERSION", "0.0.0"),
+		transport:             getEnvOrDefault("CYCLOPS_MCP_TRANSPORT", "stdio"),
+		address:               getEnvOrDefault("CYCLOPS_MCP_SSE_ADDRESS", "127.0.0.1:8000"),
 		moduleNamespace:       getEnvOrDefault("CYCLOPS_MODULE_NAMESPACE", "cyclops"),
 		helmReleaseNamespace:  os.Getenv("CYCLOPS_HELM_RELEASE_NAMESPACE"),
 		moduleTargetNamespace: os.Getenv("CYCLOPS_MODULE_TARGET_NAMESPACE"),

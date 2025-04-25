@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cyclops-mcp
+  labels:
+    app: cyclops-mcp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cyclops-mcp
+  template:
+    metadata:
+      labels:
+        app: cyclops-mcp
+    spec:
+      containers:
+        - name: cyclops-mcp
+          image: cyclopsui/cyclops-mcp:0.0.1
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cyclops-mcp
+  labels:
+    app: cyclops-mcp
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8000
+      targetPort: 8000
+      protocol: TCP
+      name: http
+  selector:
+    app: cyclops-mcp

@@ -1,0 +1,103 @@
+name: build
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        description: Version to be used as release name and image tagging
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Test build
+        run: |
+          go build ./cmd/mcp-cyclops
+
+  build-mcp-server:
+    needs:
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            VERSION=${{ github.event.inputs.version }}
+          push: true
+          tags: cyclopsui/cyclops-mcp:${{ github.event.inputs.version }}
+
+  update-install-manifest:
+    needs:
+      - build-mcp-server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+      - name: update install manifest
+        run: |
+          TAG=${{ github.event.inputs.version }}
+          INSTALL_YAML=$GITHUB_WORKSPACE/install/mcp-server.yaml
+
+          sed -i 's/cyclopsui\/cyclops-mcp\:.*/cyclopsui\/cyclops-mcp\:'$TAG'/' $INSTALL_YAML
+
+          # update file
+          git fetch origin ${{ steps.extract_branch.outputs.branch }}
+          git checkout ${{ steps.extract_branch.outputs.branch }}
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git status
+          git add $INSTALL_YAML
+          git commit -m '⚙️ update cyclops to '$TAG
+          git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
+
+
+  release:
+    needs:
+      - update-install-manifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+        id: extract_branch
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${{ steps.extract_branch.outputs.branch }}" = "main" ]; then
+            gh release create ${{ github.event.inputs.version }} \
+              --repo="https://github.com/cyclops-ui/cyclops" \
+              --title="${{ github.event.inputs.version }}" \
+              --generate-notes
+          else
+            gh release create ${{ github.event.inputs.version }} \
+              --repo="https://github.com/cyclops-ui/cyclops" \
+              --title="${{ github.event.inputs.version }}" \
+              --generate-notes \
+              --target ${{ steps.extract_branch.outputs.branch }}\
+              --prerelease
+          fi
