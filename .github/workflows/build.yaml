@@ -73,7 +73,6 @@ jobs:
           git commit -m '⚙️ update cyclops to '$TAG
           git push origin HEAD:${{ steps.extract_branch.outputs.branch }}
 
-
   release:
     needs:
       - update-install-manifest
@@ -90,12 +89,12 @@ jobs:
         run: |
           if [ "${{ steps.extract_branch.outputs.branch }}" = "main" ]; then
             gh release create ${{ github.event.inputs.version }} \
-              --repo="https://github.com/cyclops-ui/cyclops" \
+              --repo="https://github.com/cyclops-ui/mcp-cyclops" \
               --title="${{ github.event.inputs.version }}" \
               --generate-notes
           else
             gh release create ${{ github.event.inputs.version }} \
-              --repo="https://github.com/cyclops-ui/cyclops" \
+              --repo="https://github.com/cyclops-ui/mcp-cyclops" \
               --title="${{ github.event.inputs.version }}" \
               --generate-notes \
               --target ${{ steps.extract_branch.outputs.branch }}\
