@@ -8,6 +8,7 @@ RUN go mod tidy
 
 COPY ./ ./
 
+RUN mkdir /build/bin
 RUN go build -o /build/bin ./...
 
 FROM alpine:3.20.0
