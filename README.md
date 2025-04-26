@@ -46,7 +46,62 @@ Configure your MCP Cyclops server:
 }
 ```
 
----
+## Install on a Kubernetes cluster
+
+Instead of having each developer install `mcp-cyclops` binary, you can install the Cyclops MCP server with SSE as transport type to your Kubernetes cluster and allow all of your developers to connect to the same server.
+
+1. Before installing, make sure Cyclops and all its CRDs are installed in your cluster:
+    1. Check Cyclops pods are running:
+
+        ```shell
+        kubectl get pods -n cyclops
+        ```
+
+       Should write:
+
+        ```
+        NAME                            READY   STATUS    RESTARTS   AGE
+        cyclops-ctrl-676b5d9789-ntcls   1/1     Running   0          94s
+        cyclops-ui-7798655f97-xdg29     1/1     Running   0          94s
+        ```
+
+    2. Check if CRDs are installed
+
+        ```shell
+        kubectl get crds | grep cyclops-ui
+        ```
+
+       Should write:
+
+        ```
+        modules.cyclops-ui.com             2025-04-26T15:28:18Z
+        templateauthrules.cyclops-ui.com   2025-04-26T15:28:18Z
+        templatestores.cyclops-ui.com      2025-04-26T15:28:18Z
+        ```
+
+2. Install Cyclops MCP server with the following command:
+
+    ```shell
+    kubectl apply -f https://raw.githubusercontent.com/cyclops-ui/mcp-cyclops/refs/heads/main/install/mcp-server.yaml
+    ```
+
+3. You can now expose the `cyclops-mcp` service. To test your MCP server, you can port-forward it:
+
+    ```shell
+    kubectl port-forward svc/cyclops-mcp -n cyclops 8000:8000
+    ```
+
+4. Add your Cyclops MCP server host, or in case you are testing it, the [localhost](http://localhost) address where you port-forwarded the MCP service:
+
+    ```json
+    {
+      "mcpServers": {
+        "mcp-cyclops": {
+          "url": "http://localhost:8000/sse"
+        }
+      }
+    }
+    ```
 
 ## Tools
 
