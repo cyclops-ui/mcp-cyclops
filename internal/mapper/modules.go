@@ -16,6 +16,9 @@ func CreateModule(moduleName, repo, path, version, sourceType string, values []b
 		},
 		ObjectMeta: v1.ObjectMeta{
 			Name: moduleName,
+			Annotations: map[string]string{
+				v1alpha1.ModuleManagerAnnotation: "mcp",
+			},
 		},
 		Spec: v1alpha1.ModuleSpec{
 			TemplateRef: v1alpha1.TemplateRef{

@@ -49,6 +49,8 @@ github.com/containerd/log v0.1.0/go.mod h1:VRRf09a7mHDIRezVKTRCrOq78v577GXq3bSa3
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
 github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425140426-3fe1a1ecab1e h1:H2I/WXA7FBfz6VNFdMt3IB2YZtzPbwzmMELdkRuDuRc=
 github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250425140426-3fe1a1ecab1e/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
+github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250428101219-ce60d9962a4a h1:X0tsu1VGVQzCbfWgIRX6iwBt6uBbvfKu0tWkaJKNJxY=
+github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250428101219-ce60d9962a4a/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
 github.com/cyphar/filepath-securejoin v0.2.4 h1:Ugdm7cg7i6ZK6x3xDF1oEu1nfkyfH53EtKeQYTC3kyg=
 github.com/cyphar/filepath-securejoin v0.2.4/go.mod h1:aPGpWjXOXUn2NCNjFvBE6aRxGGx79pTxQpKOJNYHHl4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
