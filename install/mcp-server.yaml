@@ -19,12 +19,8 @@ metadata:
   namespace: cyclops
 rules:
   - apiGroups:
-      - '*'
+      - 'cyclops-ui.com'
     resources:
-      - '*'
-    verbs:
-      - '*'
-  - nonResourceURLs:
       - '*'
     verbs:
       - '*'
