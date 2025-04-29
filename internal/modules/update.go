@@ -41,6 +41,31 @@ func (m *ModuleController) updateModule(_ context.Context, request mcp.CallToolR
 	}
 
 	module, err := mapper.UpdateModuleValues(curr, updateValues)
+
+	template, err := m.templateRepo.GetTemplate(
+		module.Spec.TemplateRef.URL,
+		module.Spec.TemplateRef.Path,
+		module.Spec.TemplateRef.Version,
+		module.Status.TemplateResolvedVersion,
+		module.Spec.TemplateRef.SourceType)
+	if err != nil {
+		return nil, err
+	}
+
+	var values map[string]interface{}
+	if err := json.Unmarshal(module.Spec.Values.Raw, &values); err != nil {
+		return nil, err
+	}
+
+	valid, validationError, err := m.validateModuleValues(template.RawSchema, values)
+	if err != nil {
+		return nil, err
+	}
+
+	if !valid {
+		return mcp.NewToolResultError(validationError.Error()), nil
+	}
+
 	if err := m.k8sClient.UpdateModule(module); err != nil {
 		return nil, fmt.Errorf("failed to update module: %w", err)
 	}

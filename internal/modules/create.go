@@ -67,6 +67,20 @@ func (m *ModuleController) createModule(_ context.Context, request mcp.CallToolR
 
 	values = mapper.DeepMerge(initialValues, values)
 
+	template, err := m.templateRepo.GetTemplate(repo, path, version, "", v1alpha1.TemplateSourceType(templateType))
+	if err != nil {
+		return nil, err
+	}
+
+	valid, validationError, err := m.validateModuleValues(template.RawSchema, values)
+	if err != nil {
+		return nil, err
+	}
+
+	if !valid {
+		return mcp.NewToolResultError(validationError.Error()), nil
+	}
+
 	valuesBytes, err := json.Marshal(values)
 	if err != nil {
 		return nil, err
