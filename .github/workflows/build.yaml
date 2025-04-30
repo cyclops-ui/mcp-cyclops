@@ -44,7 +44,7 @@ jobs:
           build-args: |
             VERSION=${{ github.event.inputs.version }}
           push: true
-          tags: cyclopsui/cyclops-mcp:${{ github.event.inputs.version }}
+          tags: cyclopsui/cyclops-mcp:${{ github.event.inputs.version }},cyclopsui/cyclops-mcp:latest
 
   update-install-manifest:
     needs:
