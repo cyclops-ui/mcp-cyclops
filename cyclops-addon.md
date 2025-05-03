@@ -18,7 +18,7 @@ It allows you to move fast and ensure no uncaught misconfigurations are hitting 
     kubectl port-forward svc/cyclops-mcp -n cyclops 8000:8000
     ```
 
-3. Add your Cyclops MCP server host, or in case you are testing it, the [localhost](http://localhost) address where you port-forwarded the MCP service:
+3. Add your Cyclops MCP server host, or in case you are testing it, the [http://localhost:8000/sse](http://localhost:8000/sse) address where you port-forwarded the MCP service:
 
     ```json
     {
