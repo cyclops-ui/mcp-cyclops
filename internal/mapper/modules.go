@@ -16,8 +16,8 @@ func CreateModule(moduleName, repo, path, version, sourceType string, values []b
 		},
 		ObjectMeta: v1.ObjectMeta{
 			Name: moduleName,
-			Annotations: map[string]string{
-				v1alpha1.ModuleManagerAnnotation: "mcp",
+			Labels: map[string]string{
+				v1alpha1.ModuleManagerLabel: "mcp",
 			},
 		},
 		Spec: v1alpha1.ModuleSpec{
@@ -83,6 +83,7 @@ func UpdateModuleValues(module *v1alpha1.Module, values map[string]interface{}) 
 		ObjectMeta: v1.ObjectMeta{
 			Name:            module.Name,
 			Annotations:     module.Annotations,
+			Labels:          module.Labels,
 			ResourceVersion: module.GetResourceVersion(),
 		},
 		Spec: v1alpha1.ModuleSpec{

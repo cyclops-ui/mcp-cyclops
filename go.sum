@@ -47,8 +47,8 @@ github.com/containerd/continuity v0.4.2/go.mod h1:F6PTNCKepoxEaXLQp3wDAjygEnImnZ
 github.com/containerd/log v0.1.0 h1:TCJt7ioM2cr/tfR8GPbGf9/VRAX8D2B4PjzCpfX540I=
 github.com/containerd/log v0.1.0/go.mod h1:VRRf09a7mHDIRezVKTRCrOq78v577GXq3bSa3EhrzVo=
 github.com/creack/pty v1.1.9/go.mod h1:oKZEueFk5CKHvIhNR5MUki03XCEU+Q6VDXinZuGJ33E=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250428101219-ce60d9962a4a h1:X0tsu1VGVQzCbfWgIRX6iwBt6uBbvfKu0tWkaJKNJxY=
-github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250428101219-ce60d9962a4a/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
+github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250504134103-e377a8d4a02b h1:DH2W5swTf75MeF61MEUrN3oaVR6QuipXSHnu7gcBzGg=
+github.com/cyclops-ui/cyclops/cyclops-ctrl v0.0.0-20250504134103-e377a8d4a02b/go.mod h1:X9riUJ/32Bs2c3ZK2w1WXxHmZbpn/kh4YaLFICzbPuo=
 github.com/cyphar/filepath-securejoin v0.2.4 h1:Ugdm7cg7i6ZK6x3xDF1oEu1nfkyfH53EtKeQYTC3kyg=
 github.com/cyphar/filepath-securejoin v0.2.4/go.mod h1:aPGpWjXOXUn2NCNjFvBE6aRxGGx79pTxQpKOJNYHHl4=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
