@@ -56,7 +56,7 @@ func main() {
 		zap.New(),
 	)
 	if err != nil {
-		fmt.Println(fmt.Sprintf("Failed to create Kubernetes client: %v", err))
+		fmt.Fprintln(os.Stderr, fmt.Sprintf("Failed to create Kubernetes client: %v", err))
 		os.Exit(1)
 	}
 
@@ -78,14 +78,17 @@ func main() {
 	case "stdio":
 		stdioServer := server.NewStdioServer(s)
 		if err := stdioServer.Listen(context.Background(), os.Stdin, os.Stdin); err != nil {
+			fmt.Fprintln(os.Stderr, "failed to start stdio server")
 			panic(err)
 		}
 	case "sse":
 		sseServer := server.NewSSEServer(s)
 		if err := sseServer.Start(config.address); err != nil {
+			fmt.Fprintln(os.Stderr, "failed to start sse server")
 			panic(err)
 		}
 	default:
+		fmt.Fprintln(os.Stderr, "invalid transport type - should be stdio or sse")
 		panic("invalid transport type - should be stdio or sse")
 	}
 }
