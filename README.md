@@ -22,6 +22,8 @@ The easiest way to install the Cyclops MCP server is through the Cyclops UI. Bel
 
 1. Install the Cyclops MCP by going to sidebar `“Addon”` > `"MCP server"`. You can now click `"Install Cyclops MCP server"` and your Cyclops MCP server will be up and running in a few seconds.
 
+<img width="762" alt="addon-install" src="https://github.com/user-attachments/assets/57dfd8f9-9b58-4797-a348-d2788a6fba9b" />
+
 2. Now that your MCP server is up running, all thats left is exposing it outside of your cluster and connecting your AI agent to it.
 
    To expose the MCP server on localhost you can simply port-forward it with the following command:
@@ -117,6 +119,8 @@ Below is the list of environment variables used for configuring your Cyclops MCP
 <summary>
 Install to a Kubernetes cluster manually
 </summary>
+
+---
 
 Instead of having each developer install `mcp-cyclops` binary, you can install the Cyclops MCP server with SSE as transport type to your Kubernetes cluster and allow all of your developers to connect to the same server.
 
