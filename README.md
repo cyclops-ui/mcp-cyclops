@@ -39,7 +39,7 @@ The easiest way to install the Cyclops MCP server is through the Cyclops UI. Bel
     ```bash
     {
       "mcpServers": {
-        "mcp-cyclops": {
+        "cyclops-kubernetes": {
           "url": "http://localhost:8000/sse"
         }
       }
