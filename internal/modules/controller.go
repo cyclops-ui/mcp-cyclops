@@ -27,6 +27,7 @@ func (m *ModuleController) RegisterModuleTools(mcp *server.MCPServer) {
 	mcp.AddTool(m.listModulesTool(), m.listModules)
 	mcp.AddTool(m.createModuleTool(), m.createModule)
 	mcp.AddTool(m.updateModuleTool(), m.updateModule)
+	mcp.AddTool(m.createModuleManifestTool(), m.createModuleManifestModule)
 }
 
 func (m *ModuleController) validateModuleValues(schema []byte, values map[string]interface{}) (bool, error, error) {
