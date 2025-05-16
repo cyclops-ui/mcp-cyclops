@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"gopkg.in/yaml.v2"
 
 	"github.com/mark3labs/mcp-go/mcp"
+	"sigs.k8s.io/yaml"
 
 	"github.com/cyclops-ui/cyclops/cyclops-ctrl/api/v1alpha1"
 
