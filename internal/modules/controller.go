@@ -24,6 +24,7 @@ func NewController(k8sClient *k8sclient.KubernetesClient, templateRepo template.
 
 func (m *ModuleController) RegisterModuleTools(mcp *server.MCPServer) {
 	mcp.AddTool(m.getModuleByNameTool(), m.getModuleByName)
+	mcp.AddTool(m.listModuleResourcesTool(), m.listModuleResources)
 	mcp.AddTool(m.listModulesTool(), m.listModules)
 	mcp.AddTool(m.createModuleTool(), m.createModule)
 	mcp.AddTool(m.updateModuleTool(), m.updateModule)
