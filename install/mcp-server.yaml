@@ -63,7 +63,7 @@ spec:
       serviceAccountName: cyclops-mcp
       containers:
         - name: cyclops-mcp
-          image: cyclopsui/cyclops-mcp:v0.1.0
+          image: cyclopsui/cyclops-mcp:v0.2.0
           ports:
             - name: http
               containerPort: 8000
