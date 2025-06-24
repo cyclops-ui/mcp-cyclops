@@ -28,6 +28,7 @@ func (m *ModuleController) RegisterModuleTools(mcp *server.MCPServer) {
 	mcp.AddTool(m.listModulesTool(), m.listModules)
 	mcp.AddTool(m.createModuleTool(), m.createModule)
 	mcp.AddTool(m.updateModuleTool(), m.updateModule)
+	mcp.AddTool(m.deleteModuleByNameTool(), m.deleteModule)
 	mcp.AddTool(m.createModuleManifestTool(), m.createModuleManifestModule)
 }
 
