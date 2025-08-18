@@ -3,6 +3,7 @@
 <p/>
 
 # Cyclops MCP (Model Context Protocol)
+[![Trust Score](https://archestra.ai/mcp-catalog/api/badge/quality/cyclops-ui/mcp-cyclops)](https://archestra.ai/mcp-catalog/cyclops-ui__mcp-cyclops)
 
 Cyclops MCP allows your favorite AI agent to manage your Kubernetes applications. Cyclops MCP servers provide tools for agents to create and update existing applications safely.
 
