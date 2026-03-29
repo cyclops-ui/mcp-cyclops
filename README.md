@@ -192,3 +192,8 @@ Instead of having each developer install `mcp-cyclops` binary, you can install t
 | `get_template_store`  | Fetch Template Store by Name                                                                                                       |
 | `list_template_store` | List Template Stores from cluster                                                                                                  |
 
+
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/cyclops-ui-mcp-cyclops).
+
